@@ -1,7 +1,3 @@
-/**
- * HeroImage.tsx
- * 概要: オーバーウォッチのキャラクター画像を表示するコンポーネント
- */
 import { Box, Image } from "@chakra-ui/react";
 
 type Props = {
@@ -10,6 +6,12 @@ type Props = {
   onClick: (name: string) => void;
 };
 
+/**
+ * HeroImage.tsx
+ * 概要: オーバーウォッチのキャラクター画像を表示するコンポーネント
+ *  特徴: 画像を丸く表示し、選択されている場合は枠線の色を変更
+ *  使用方法: キャラクターの画像と選択状態を受け取り、クリック時にキャラクター名を返す
+ */
 export const HeroImage = ({ hero, selected, onClick }: Props) => (
   <Box
     overflow="hidden" // 枠を超えた部分は見えない

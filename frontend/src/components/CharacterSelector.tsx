@@ -1,8 +1,3 @@
-/**
- *  CharacterSelector.tsx
- *  概要: オーバーウォッチのキャラクターをロールごとに選択するセクションコンポーネント
- */
-
 import { Text } from "@chakra-ui/react";
 import { HeroRoleSection } from "./HeroRoleSection";
 import { owList } from "../data/owlist";
@@ -11,6 +6,11 @@ type Props = {
   selectedHeroes: string[];
   onHeroClick: (name: string) => void;
 };
+
+/**
+ *  CharacterSelector.tsx
+ *  概要: オーバーウォッチのキャラクターをロールごとに選択するセクションコンポーネント
+ */
 
 export const CharacterSelector = ({ selectedHeroes, onHeroClick }: Props) => {
   // オーバーウォッチのキャラクターリストをロールごとに分ける

@@ -1,7 +1,3 @@
-/**
- *  UserForm.tsx
- *  概要: ユーザー情報を入力するフォームコンポーネント
- */
 import {
   Box,
   Text,
@@ -28,6 +24,13 @@ type Props = {
   comment: string;
   setComment: (v: string) => void;
 };
+
+/**
+ *  UserForm.tsx
+ *  概要: ユーザー情報を入力するフォームコンポーネント
+ *  特徴: 名前、ID、ロール、プラットフォーム、コメントを入力可能
+ *  使用方法: 各入力フィールドの値と変更ハンドラを受け取り、フォームを表示
+ */
 
 export const UserForm = ({
   userName,

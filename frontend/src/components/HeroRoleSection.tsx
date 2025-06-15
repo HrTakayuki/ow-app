@@ -1,10 +1,6 @@
 import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import { HeroImage } from "./HeroImage";
 
-/**
- *  HeroRoleSection.tsx
- *  概要: オーバーウォッチのキャラクターをロールごとに表示するセクションコンポーネント
- */
 type Hero = { name: string; image: string };
 type Props = {
   title: string;
@@ -13,6 +9,10 @@ type Props = {
   onHeroClick: (name: string) => void;
 };
 
+/**
+ *  HeroRoleSection.tsx
+ *  概要: オーバーウォッチのキャラクターをロールごとに表示するセクションコンポーネント
+ */
 export const HeroRoleSection = ({
   title,
   heroes,

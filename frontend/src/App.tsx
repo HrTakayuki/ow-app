@@ -3,6 +3,7 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 import { UserForm } from "./components/UserFrom";
 import { CharacterSelector } from "./components/CharacterSelector";
+import { RoleHeroList } from "./components/RoleHeroList";
 
 export function App() {
   // ユーザー情報の状態
@@ -22,7 +23,6 @@ export function App() {
     comment: string;
     selectedHeroes: string[];
   } | null>(null);
-  console.log("savedProfile", savedProfile);
 
   /**
    * クリックイベント処理
@@ -86,6 +86,87 @@ export function App() {
         >
           入力内容を保存
         </Button>
+        {/* プレビューカード */}
+        {savedProfile && (
+          <Box
+            mt={8}
+            p={6}
+            borderRadius="2xl"
+            boxShadow="2xl"
+            bgGradient="linear(to-br, teal.50, white)"
+            maxW="420px"
+            mx="auto"
+            border="2px solid"
+            borderColor="teal.200"
+            position="relative"
+          >
+            <Heading
+              size="md"
+              color="teal.700"
+              mb={2}
+              textAlign="center"
+              letterSpacing="wide"
+            >
+              {savedProfile.userName || "名無しさん"}
+            </Heading>
+            <Box textAlign="center" color="gray.500" fontSize="sm" mb={2}>
+              ID: {savedProfile.userId || "-"}
+            </Box>
+            <Box display="flex" justifyContent="center" gap={2} mb={3}>
+              {savedProfile.mainRoles.map((role) => (
+                <Box
+                  key={role}
+                  px={3}
+                  py={1}
+                  bg={
+                    role === "Tank"
+                      ? "blue.200"
+                      : role === "Damage"
+                      ? "red.200"
+                      : "green.200"
+                  }
+                  color="white"
+                  borderRadius="full"
+                  fontWeight="bold"
+                  fontSize="sm"
+                  letterSpacing="wider"
+                >
+                  {role === "Tank" && "タンク"}
+                  {role === "Damage" && "ダメージ"}
+                  {role === "Support" && "サポート"}
+                </Box>
+              ))}
+            </Box>
+            <Box display="flex" justifyContent="center" gap={2} mb={3}>
+              {savedProfile.platforms.map((pf) => (
+                <Box
+                  key={pf}
+                  px={2}
+                  py={1}
+                  bg="gray.200"
+                  color="teal.700"
+                  borderRadius="md"
+                  fontSize="xs"
+                  fontWeight="bold"
+                >
+                  {pf}
+                </Box>
+              ))}
+            </Box>
+            <Box
+              bg="gray.100"
+              borderRadius="md"
+              p={3}
+              fontSize="sm"
+              color="gray.700"
+              minH="48px"
+              mb={3}
+            >
+              {savedProfile.comment || "コメントはありません"}
+            </Box>
+            <RoleHeroList selectedHeroes={savedProfile.selectedHeroes} />
+          </Box>
+        )}
       </Box>
     </Box>
   );
