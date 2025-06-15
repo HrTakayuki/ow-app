@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import { HeroImage } from "./HeroImage";
 
 /**
@@ -18,10 +18,16 @@ export const HeroRoleSection = ({
   selectedHeroes,
   onHeroClick,
 }: Props) => (
-  <Box mt={5} p={3} border="1px solid #ccc" borderRadius="md">
-    <Heading size="md" mb={2}>
+  <Box
+    mt={0}
+    mb={4}
+    p={3}
+    border="1px solid rgb(235, 235, 235)"
+    borderRadius="md"
+  >
+    <Text fontWeight="bold" color="gray.600" mb={1}>
       {title}
-    </Heading>
+    </Text>
     <SimpleGrid templateColumns="repeat(auto-fill, minmax(50px, 1fr))" gap={1}>
       {heroes.map((hero) => (
         <HeroImage
