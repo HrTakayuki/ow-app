@@ -1,5 +1,6 @@
 /**
- * キャラ画像と画像クリック処理
+ * HeroImage.tsx
+ * 概要: オーバーウォッチのキャラクター画像を表示するコンポーネント
  */
 import { Box, Image } from "@chakra-ui/react";
 

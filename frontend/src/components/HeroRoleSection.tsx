@@ -2,7 +2,8 @@ import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import { HeroImage } from "./HeroImage";
 
 /**
- * ロールごとのセクション
+ *  HeroRoleSection.tsx
+ *  概要: オーバーウォッチのキャラクターをロールごとに表示するセクションコンポーネント
  */
 type Hero = { name: string; image: string };
 type Props = {
