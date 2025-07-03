@@ -58,6 +58,10 @@ export const PreviewModal = ({
 
   const handleSaveImage = async () => {
     if (!previewRef.current) return;
+    // フォントの読み込みを待つ
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
     const rect = previewRef.current.getBoundingClientRect();
     const padding = 32;
 
@@ -75,6 +79,12 @@ export const PreviewModal = ({
     const cloned = previewRef.current.cloneNode(true) as HTMLElement;
     cloned.style.width = "100%";
     cloned.style.height = "100%";
+    cloned.style.fontFamily =
+      '"M PLUS Rounded 1c", "Noto Sans JP", "Arial Rounded MT Bold", Arial, sans-serif';
+    cloned.querySelectorAll("*").forEach((el) => {
+      (el as HTMLElement).style.fontFamily =
+        '"M PLUS Rounded 1c", "Noto Sans JP", "Arial Rounded MT Bold", Arial, sans-serif';
+    });
     wrapper.appendChild(cloned);
     document.body.appendChild(wrapper);
 
@@ -117,17 +127,29 @@ export const PreviewModal = ({
           <button
             onClick={handleSaveImage}
             style={{
-              background: "#3182ce",
-              color: "#fff",
+              background: "transparent",
               border: "none",
-              borderRadius: 6,
-              padding: "6px 16px",
-              fontWeight: "bold",
+              padding: 0,
               cursor: "pointer",
-              boxShadow: "0 2px 8px #0002",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
+            aria-label="画像保存"
           >
-            画像保存
+            <img
+              src="/images/seve.png"
+              alt="画像保存"
+              style={{
+                width: 40,
+                height: 40,
+                display: "block",
+                filter: "brightness(0) invert(1)",
+              }}
+            />
+            <span style={{ marginTop: 4, color: "#fff", fontSize: 14 }}>
+              保存
+            </span>
           </button>
         </Box>
         <ModalBody
