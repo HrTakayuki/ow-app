@@ -23,10 +23,12 @@ export const HeroRoleSection = ({
     mt={0}
     mb={4}
     p={3}
-    border="1px solid rgb(235, 235, 235)"
+    bg="blue.50"
+    border="1.5px solid"
+    borderColor="blue.400"
     borderRadius="md"
   >
-    <Text fontWeight="bold" color="gray.600" mb={1}>
+    <Text fontWeight="bold" color="blue.700" mb={1} letterSpacing="wide">
       {title}
     </Text>
     <SimpleGrid templateColumns="repeat(auto-fill, minmax(50px, 1fr))" gap={1}>

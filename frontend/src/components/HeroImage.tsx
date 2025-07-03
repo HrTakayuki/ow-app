@@ -13,21 +13,20 @@ type Props = {
  *  使用方法: キャラクターの画像と選択状態を受け取り、クリック時にキャラクター名を返す
  */
 export const HeroImage = ({ hero, selected, onClick }: Props) => (
-  <Box
-    overflow="hidden" // 枠を超えた部分は見えない
-    p={0}
-    mb={1}
-  >
+  <Box overflow="hidden" p={0} mb={1}>
     <Image
-      src={hero.image} // 画像のパス
-      alt={hero.name} // 画像のalt属性
-      borderRadius="full" // 画像を丸く表示
-      border={selected ? "2px solid" : "1px solid"}
+      src={hero.image}
+      alt={hero.name}
+      borderRadius="full"
+      border={selected ? "3px solid" : "2px solid"}
       cursor="pointer"
-      onClick={() => onClick(hero.name)} // キャラをクリックした時の処理
-      borderColor={selected ? "rgb(61, 123, 247)" : "gray.300"}
-      boxSize="50px" // 画像のサイズを指定
-      mx="auto" // 中央揃え
+      onClick={() => onClick(hero.name)}
+      borderColor={selected ? "orange.300" : "gray.300"} // 選択時:オレンジ系、未選択時:グレー系でコントラストUP
+      boxSize="50px"
+      mx="auto"
+      bg="blue.50"
+      transition="border-color 0.2s"
+      boxShadow="none"
     />
   </Box>
 );

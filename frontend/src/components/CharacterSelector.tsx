@@ -31,7 +31,13 @@ export const CharacterSelector = ({ selectedHeroes, onHeroClick }: Props) => {
   return (
     <>
       {/* キャラクター選択 */}
-      <Text mb={2} fontWeight="bold" color="teal.700">
+      <Text
+        mb={2}
+        fontWeight="bold"
+        color="blue.100"
+        fontSize="md"
+        letterSpacing="wide"
+      >
         よく使うキャラクター
       </Text>
       {roleSections.map((section) => (
@@ -41,6 +47,7 @@ export const CharacterSelector = ({ selectedHeroes, onHeroClick }: Props) => {
           heroes={section.heroes}
           selectedHeroes={selectedHeroes}
           onHeroClick={onHeroClick}
+          // HeroRoleSection側でも色味を blue.800 や blue.400 などで統一推奨
         />
       ))}
     </>
